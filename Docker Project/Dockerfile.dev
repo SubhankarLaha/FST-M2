@@ -1,0 +1,22 @@
+#set base imaage
+
+FROM node:18-alpine
+
+#create working directory
+
+WORKDIR /usr/app
+
+# copy package file from source to working directory
+
+COPY ./package.json ./
+
+
+#install the dependecies
+
+RUN npm install
+# copy src file from source to working directory
+
+COPY ./ ./
+#start the web server
+
+CMD ["npm","run","serve"]
